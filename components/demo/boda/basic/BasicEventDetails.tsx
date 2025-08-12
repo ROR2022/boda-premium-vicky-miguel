@@ -134,6 +134,7 @@ export function BasicEventDetails() {
               
               {/* Botón destacado para ver video */}
               <button 
+              style={{display:'none'}}
                 onClick={() => setVideoModalOpen(true)}
                 className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-offset-2 group"
               >
