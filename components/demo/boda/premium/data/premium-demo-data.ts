@@ -53,10 +53,10 @@ export const premiumDemoData = {
     title: "INVITACIÓN DE BODA",
     message: "Con gran alegría les invitamos a celebrar",
     subtitle: "Nuestra Boda",
-    blessing: "con la bendición de Dios y nuestros padres:",
+    blessing: "Con la bendición de Dios y nuestra familia, nos encantará compartir con ustedes la alegría de nuestro matrimonio.",
     celebrants: basicDemoData.event.celebrants,
     parents: basicDemoData.event.parents,
-    decorativeMessage: "Los esperamos en este día tan especial"
+    decorativeMessage: "Estaremos muy felices de contar con su presencia."
   },
   
   // Lista de padrinos (característica premium NUEVA)

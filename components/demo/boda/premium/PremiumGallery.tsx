@@ -221,9 +221,9 @@ export function PremiumGallery() {
             Momentos Especiales
           </h3>
           <p className="text-gray-700 max-w-3xl mx-auto">
-            Cada foto cuenta una historia de amor, risas y momentos inolvidables. 
-            Estas imágenes capturan la esencia de nuestra relación y la emoción 
-            de prepararnos para nuestro día especial.
+            Uno solo puede ser vencido, pero dos pueden resistir. La cuerda de tres hilos no se rompe fácilmente.
+            <br />
+            Eclesiastés 4:12
           </p>
         </div>
       </div>

@@ -36,7 +36,9 @@ export function PremiumInvitation() {
           </div>
 
           {/* Información de los novios */}
-          <div className="text-center mb-8">
+          <div 
+          style={{ display: 'none' }}
+          className="text-center mb-8">
             <div className="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-6 mb-6">
               <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 {premiumDemoData.invitation.celebrants.bride}

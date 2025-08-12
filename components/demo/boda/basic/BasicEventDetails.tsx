@@ -33,7 +33,9 @@ export function BasicEventDetails() {
           </h3>
           
           {/* Padres */}
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          <div 
+          style={{ display: 'none' }}
+          className="grid md:grid-cols-2 gap-6 mt-8">
             <div className="bg-white rounded-lg p-4">
               <h4 className="font-semibold text-gray-800 mb-2">Padres de la Novia</h4>
               <p className="text-gray-600">{basicDemoData.event.parents.brideParents.father}</p>

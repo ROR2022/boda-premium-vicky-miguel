@@ -52,8 +52,8 @@ export const basicDemoData = {
 
   attendance: {
     title: "CONFIRMACIÓN DE ASISTENCIA",
-    message: "Favor de confirmar asistencia 3 semanas antes del evento",
-    subtitle: "",
+    message: "Respetuosamente No Niños",
+    subtitle: "Hemos decidido celebrar este momento sin niños, deseamos que esta decisión no les impida asistir a nuestra celebración",
     fields: {
       name: "Nombre completo",
       response: "¿Podrás acompañarnos?",

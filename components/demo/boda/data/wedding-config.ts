@@ -23,8 +23,8 @@ export const weddingConfig = {
     
     // Nombres completos oficiales
     fullNames: {
-      bride: "VICTORIA LÓPEZ HERNÁNDEZ", // Cambiar por el nombre real
-      groom: "MIGUEL ÁNGEL RODRÍGUEZ SANTOS" // Cambiar por el nombre real
+      bride: "Virginia Zavala Franco", // Cambiar por el nombre real
+      groom: "Miguel Hernández Mola" // Cambiar por el nombre real
     },
     
     // Metadatos para SEO y título
@@ -76,7 +76,7 @@ export const weddingConfig = {
     
     // Detalles adicionales
     dressCode: "Formal",
-    restrictions: ""
+    restrictions: "No Niños"
   },
 
   // ==========================================
@@ -183,8 +183,8 @@ export const weddingConfig = {
     // Galería premium (16 fotos usando las 10 reales + repeticiones)
     gallery: {
       title: "Nuestra Historia en Imágenes",
-      subtitle: "Momentos especiales de Vicky & Miguel",
-      description: "Una colección de nuestras fotos favoritas preparándonos para este gran día",
+      subtitle: "Y hoy nos damos cuenta de que siempre estuvimos cerca, pero nuestra vidas se cruzaron hasta que era el momento indicado",
+      description: "Dios nunca falla, sus tiempos son Perfectos",
       images: [
         // Primera ronda - todas las fotos originales (1-10)
         { src: "/images/custom/vicky_miguel_1.jpg", alt: "Vicky & Miguel - Momento 1" },
@@ -197,14 +197,16 @@ export const weddingConfig = {
         { src: "/images/custom/vicky_miguel_8.jpg", alt: "Vicky & Miguel - Momento 8" },
         { src: "/images/custom/vicky_miguel_9.jpg", alt: "Vicky & Miguel - Momento 9" },
         { src: "/images/custom/vicky_miguel_10.jpg", alt: "Vicky & Miguel - Momento 10" },
-        
+        { src: "/images/custom/vicky_miguel_11.jpg", alt: "Vicky & Miguel - Momento 11" },
+
         // Segunda ronda - repetir las mejores fotos (4, 6, 7, 8, 9, 10)
         { src: "/images/custom/vicky_miguel_4.jpg", alt: "Vicky & Miguel - Momento Especial 1" },
         { src: "/images/custom/vicky_miguel_6.jpg", alt: "Vicky & Miguel - Momento Especial 2" },
         { src: "/images/custom/vicky_miguel_7.jpg", alt: "Vicky & Miguel - Momento Especial 3" },
         { src: "/images/custom/vicky_miguel_8.jpg", alt: "Vicky & Miguel - Momento Especial 4" },
         { src: "/images/custom/vicky_miguel_9.jpg", alt: "Vicky & Miguel - Momento Especial 5" },
-        { src: "/images/custom/vicky_miguel_10.jpg", alt: "Vicky & Miguel - Momento Especial 6" }
+        { src: "/images/custom/vicky_miguel_10.jpg", alt: "Vicky & Miguel - Momento Especial 6" },
+        { src: "/images/custom/vicky_miguel_11.jpg", alt: "Vicky & Miguel - Momento Especial 7" }
       ]
     }
   },
