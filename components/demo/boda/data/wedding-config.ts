@@ -229,6 +229,12 @@ export const weddingConfig = {
         title: "Lluvia de Sobres",
         description: "El día del evento",
         details: "Puedes entregar tu sobre durante la ceremonia o recepción\n\n• Habrá un buzón especial para los sobres\n• Entrega personal también es bienvenida\n• Tu presencia es nuestro mejor regalo"
+      },
+      {
+        icon: "🎁",
+        title: "Transferencia Bancaria",
+        description: "Si prefieres obsequiarnos dinero",
+        details: "Puedes hacerlo a través de un sobre o mediante transferencia bancaria\n\n• Pregunta a los novios por los detalles"
       }
     ]
   }

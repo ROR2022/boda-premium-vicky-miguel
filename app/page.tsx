@@ -4,6 +4,7 @@ import { PremiumInvitation } from "@/components/demo/boda/premium/PremiumInvitat
 import { PremiumMusicPlayer } from "@/components/demo/boda/premium/PremiumMusicPlayer";
 import { PremiumThankYou } from "@/components/demo/boda/premium/PremiumThankYou";
 import { PremiumPadrinos } from "@/components/demo/boda/premium/PremiumPadrinos";
+import { VipWeddingRoles } from "@/components/demo/boda/premium/VipWeddingRoles";
 import { BasicCountdown } from "@/components/demo/boda/basic/BasicCountdown";
 import { BasicEventDetails } from "@/components/demo/boda/basic/BasicEventDetails";
 import { BasicAttendance } from "@/components/demo/boda/basic/BasicAttendance";
@@ -31,6 +32,9 @@ export default function LandingPage() {
       {/* Características premium exclusivas */}
       <PremiumGallery />
       {weddingConfig.display.showPadrinos && <PremiumPadrinos />}
+      
+      {/* VIP Wedding Roles - Sistema de invitaciones personalizadas */}
+      <VipWeddingRoles />
       
       {/* Confirmación y regalos (reutilizados del básico) */}
       <BasicAttendance />

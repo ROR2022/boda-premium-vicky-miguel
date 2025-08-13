@@ -5,6 +5,7 @@ export { PremiumPadrinos } from './PremiumPadrinos'
 export { PremiumGallery } from './PremiumGallery'
 export { PremiumThankYou } from './PremiumThankYou'
 export { PremiumMusicPlayer } from './PremiumMusicPlayer'
+export { VipWeddingRoles } from './VipWeddingRoles'
 
 // Datos del demo premium
 export { premiumDemoData, type PremiumDemoData } from './data/premium-demo-data'
