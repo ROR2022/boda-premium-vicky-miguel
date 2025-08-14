@@ -69,7 +69,7 @@ export function VipWeddingRoles({
 
   // 📱 Función para generar mensaje de WhatsApp
   const generateWhatsAppMessage = () => {
-    const invitationURL = "https://boda-vicky-miguel.vercel.app/"; // URL de la invitación
+    const invitationURL = "https://boda-premium-vicky-miguel.vercel.app/"; // URL de la invitación
 
     return `💒 ¡Hola ${formData.guestName}! 💒
 
