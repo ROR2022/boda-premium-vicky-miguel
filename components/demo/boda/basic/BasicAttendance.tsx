@@ -78,7 +78,7 @@ export function BasicAttendance() {
     return isValid
   }
 
-  const handleSubmit = (e: React.MouseEvent, recipient: 'groom' | 'bride') => {
+  const handleSubmit = (e: React.MouseEvent) => {
     e.preventDefault()
     
     // Validar formulario
@@ -87,86 +87,100 @@ export function BasicAttendance() {
     }
     
     // Formatear mensaje para WhatsApp
-    const message = formatWhatsAppMessage(formData, recipient)
+    const message = formatWhatsAppMessage(formData)
     
     // Enviar por WhatsApp
-    sendWhatsAppMessage(message, recipient)
+    sendWhatsAppMessage(message)
     
     // Mostrar confirmación
     setIsSubmitted(true)
   }
 
-  const formatWhatsAppMessage = (data: typeof formData, recipient: 'groom' | 'bride') => {
-    const attendanceStatus = data.response === 'yes' ? '✅ SÍ ASISTIRÉ' : '❌ NO PODRÉ ASISTIR'
-    const companionsText = data.response === 'yes' && data.companions 
-      ? `\n👥 *Acompañantes:* ${data.companions}` 
-      : ''
+  const formatWhatsAppMessage = (data: typeof formData) => {
+    // Versión ultra simplificada para evitar problemas de codificación
+    const attendanceStatus = data.response === 'yes' ? 'SI' : 'NO'
+    const companions = data.response === 'yes' && data.companions ? ` - Acompañantes: ${data.companions}` : ''
     
-    const contact = phoneNumbers[recipient]
-    const greeting = recipient === 'groom' ? `Hola ${weddingConfig.couple.shortNames.groom}!` : `Hola ${weddingConfig.couple.shortNames.bride}!`
-    
-    return `🎊 *CONFIRMACIÓN DE ASISTENCIA - BODA ${weddingConfig.couple.displayNames.toUpperCase()}* 🎊
+    // Mensaje muy básico para probar
+    const message = `Confirmacion Boda Vicky y Miguel
 
-${greeting} ${contact.flag}
+Nombre: ${data.name}
+Telefono: ${data.phone}
+Asistencia: ${attendanceStatus}${companions}
 
-👤 *Nombre:* ${data.name}
-📞 *Teléfono:* ${data.phone}
-💒 *Asistencia:* ${attendanceStatus}${companionsText}
+Fecha: 27 Diciembre 2025
+Lugar: jardin Ceiba
 
-📅 *Fecha:* ${weddingConfig.event.date.full}
-⛪ *Ceremonia:* ${weddingConfig.event.ceremony.time} - ${weddingConfig.event.ceremony.venue}
-🎉 *Recepción:* ${weddingConfig.event.reception.time} - ${weddingConfig.event.reception.venue}
+Gracias!`
 
-¡Gracias por confirmar! 💕`
+    return message
   }
 
   const phoneNumbers = {
-    groom: {
-      number: weddingConfig.contact.whatsapp.groom.number,
-      display: weddingConfig.contact.whatsapp.groom.display,
-      name: weddingConfig.contact.whatsapp.groom.name,
-      flag: weddingConfig.contact.whatsapp.groom.flag
-    },
-    bride: {
-      number: weddingConfig.contact.whatsapp.bride.number,
-      display: weddingConfig.contact.whatsapp.bride.display,
-      name: weddingConfig.contact.whatsapp.bride.name,
-      flag: weddingConfig.contact.whatsapp.bride.flag
+    unified: {
+      number: '529934584068',
+      display: '+52 993 458 4068',
+      name: 'Confirmaciones Boda',
+      flag: '🇲🇽'
     }
   }
 
-  const validatePhoneNumber = (phone: string, country: 'mexico' | 'usa'): boolean => {
-    const cleanPhone = phone.replace(/\D/g, '') // Solo dígitos
+  const sendWhatsAppMessage = (message: string) => {
+    const phoneNumber = '529934584068'
     
-    if (country === 'mexico') {
-      // México: 52 + código área + número = 12 dígitos
-      return cleanPhone.length === 12 && cleanPhone.startsWith('52')
-    } else {
-      // USA: 1 + código área + número = 11 dígitos  
-      return cleanPhone.length === 11 && cleanPhone.startsWith('1')
-    }
-  }
-
-  const sendWhatsAppMessage = (message: string, recipient: 'groom' | 'bride') => {
-    const contact = phoneNumbers[recipient]
-    const country = recipient === 'groom' ? 'mexico' : 'usa'
+    // Debug completo
+    console.log('=== DEBUG WHATSAPP ===')
+    console.log('📝 Mensaje RAW:', JSON.stringify(message))
+    console.log('📏 Longitud mensaje:', message.length)
+    console.log('📱 Número:', phoneNumber)
     
-    // Validar formato del número
-    if (!validatePhoneNumber(contact.number, country)) {
-      console.error('❌ Error: Formato de número inválido para', contact.name)
-      alert(`Error en el número de WhatsApp de ${contact.name}. Contacta al administrador.`)
+    // Método 1: Codificación estándar
+    const encodedMessage1 = encodeURIComponent(message)
+    const url1 = `https://wa.me/${phoneNumber}?text=${encodedMessage1}`
+    console.log('🔗 URL Método 1:', url1)
+    
+    // Método 2: Codificación manual básica
+    const encodedMessage2 = message.replace(/\n/g, '%0A').replace(/ /g, '%20')
+    const url2 = `https://wa.me/${phoneNumber}?text=${encodedMessage2}`
+    console.log('🔗 URL Método 2:', url2)
+    
+    // Método 3: Sin codificación (solo para test)
+    const url3 = `https://wa.me/${phoneNumber}`
+    console.log('🔗 URL Método 3 (sin mensaje):', url3)
+    
+    // Intentar con el método más simple primero
+    console.log('� Abriendo URL...')
+    
+    // Usar método 1 por defecto, pero mostrar opciones
+    const finalUrl = url1
+    console.log('✅ URL Final:', finalUrl)
+    
+    // Verificar longitud
+    if (finalUrl.length > 2048) {
+      console.warn('⚠️ URL muy larga:', finalUrl.length)
+      alert(`URL muy larga (${finalUrl.length} caracteres). Reduce el texto.`)
       return
     }
     
-    const encodedMessage = encodeURIComponent(message)
-    const whatsappUrl = `https://wa.me/${contact.number}?text=${encodedMessage}`
-    
-    // Debug info (remover en producción)
-    console.log(`✅ Enviando a ${contact.name}:`, contact.display)
-    console.log('📱 WhatsApp URL:', whatsappUrl)
-    
-    // Abrir WhatsApp en nueva ventana
-    window.open(whatsappUrl, '_blank')
+    // Abrir WhatsApp
+    try {
+      window.open(finalUrl, '_blank')
+      console.log('✅ WhatsApp abierto exitosamente')
+    } catch (error) {
+      console.error('❌ Error al abrir WhatsApp:', error)
+      
+      // Fallback: copiar al clipboard
+      navigator.clipboard.writeText(message).then(() => {
+        alert(`No se pudo abrir WhatsApp automáticamente. 
+El mensaje se ha copiado al portapapeles. 
+Número: +52 993 458 4068
+Por favor pega el mensaje manualmente.`)
+      }).catch(() => {
+        alert(`Error al abrir WhatsApp. 
+Envía manualmente a: +52 993 458 4068
+Mensaje: ${message}`)
+      })
+    }
   }
 
   const handleInputChange = (field: string, value: string) => {
@@ -227,19 +241,12 @@ ${greeting} ${contact.flag}
             <MessageCircle className="w-5 h-5" />
             <span className="font-semibold">Integración WhatsApp Activa</span>
           </div>
-          <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white rounded-lg p-3 border">
-              <p className="text-green-700 font-semibold">{phoneNumbers.groom.flag} {phoneNumbers.groom.name}</p>
-              <p className="text-green-600 text-sm">{phoneNumbers.groom.display}</p>
-            </div>
-            <div className="bg-white rounded-lg p-3 border">
-              <p className="text-green-700 font-semibold">{phoneNumbers.bride.flag} {phoneNumbers.bride.name}</p>
-              <p className="text-green-600 text-sm">{phoneNumbers.bride.display}</p>
+          <div className="mt-3">
+            <div className="bg-white rounded-lg p-3 border inline-block">
+              <p className="text-green-700 font-semibold">🇲🇽 Confirmaciones</p>
+              <p className="text-green-600 text-sm">+52 993 458 4068</p>
             </div>
           </div>
-          
-          
-          
         </div>
 
         {/* Mensaje de estado general */}
@@ -431,28 +438,17 @@ ${greeting} ${contact.flag}
               </div>
             </div>
 
-            {/* Botones de envío */}
+            {/* Botón de envío */}
             <div className="space-y-3">
-              <p className="text-center text-gray-600 font-medium">Elegir a quién confirmar:</p>
+              <p className="text-center text-gray-600 font-medium">Confirmar asistencia:</p>
               
-              {/* Botón Novio */}
               <button
-                onClick={(e) => handleSubmit(e, 'groom')}
+                onClick={(e) => handleSubmit(e)}
                 disabled={!formData.name || !formData.response || !formData.phone}
-                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-pink-600 hover:to-purple-700 transition-all duration-300 shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <MessageCircle className="w-5 h-5" />
-                🇲🇽 Confirmar con el Novio (Arodi)
-              </button>
-              
-              {/* Botón Novia */}
-              <button
-                onClick={(e) => handleSubmit(e, 'bride')}
-                disabled={!formData.name || !formData.response || !formData.phone}
-                className="w-full bg-gradient-to-r from-pink-500 to-pink-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-pink-600 hover:to-pink-700 transition-all duration-300 shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <MessageCircle className="w-5 h-5" />
-                🇺🇸 Confirmar con la Novia (Vero)
+                💒 Confirmar por WhatsApp
               </button>
             </div>
           </div>
