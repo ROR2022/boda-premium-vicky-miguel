@@ -234,7 +234,7 @@ export const weddingConfig = {
         icon: "🎁",
         title: "Transferencia Bancaria",
         description: "Si prefieres obsequiarnos dinero",
-        details: "Puedes hacerlo a través de un sobre o mediante transferencia bancaria\n\n• Pregunta a los novios por los detalles"
+        details: "Banco: Banorte\nNúmero de tarjeta:\n4189 1431 1721 2053\n• Virginia Zavala Franco"
       }
     ]
   }
