@@ -61,7 +61,7 @@ export const weddingConfig = {
     // Ceremonia religiosa
     ceremony: {
       time: "19:00 hrs.",
-      venue: "jardín Ceiba", // Ubicación real de Vicky & Miguel
+      venue: "Jardín Ceiba", // Ubicación real de Vicky & Miguel
       address: "Cam. Curahueso, Plutarco Elias Calles, Centro, Tabasco",
       type: "Ceremonia Religiosa"
     },
@@ -69,7 +69,7 @@ export const weddingConfig = {
     // Recepción
     reception: {
       time: "20:00 hrs.",
-      venue: "jardín Ceiba", // Mismo lugar que la ceremonia
+      venue: "Jardín Ceiba", // Mismo lugar que la ceremonia
       address: "Cam. Curahueso, Plutarco Elias Calles, Centro, Tabasco",
       type: "Recepción"
     },

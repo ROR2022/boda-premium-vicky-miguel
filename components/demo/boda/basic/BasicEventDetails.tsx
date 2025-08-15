@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { MapPin, Clock, Users, Heart, Video } from 'lucide-react'
 import { basicDemoData } from './data/basic-demo-data'
 import { VideoModal } from '@/components/ui/VideoModal'
+import { Button } from '@/components/ui/button'
 
 export function BasicEventDetails() {
   const [videoModalOpen, setVideoModalOpen] = useState(false)
@@ -123,7 +124,9 @@ export function BasicEventDetails() {
               </div>
             </div>
             
-            <div className="bg-purple-50 rounded-lg p-4">
+            <div 
+            style={{display:'none'}}
+            className="bg-purple-50 rounded-lg p-4">
               <h4 className="font-semibold text-purple-800 mb-2">Durante la Recepción</h4>
               <ul className="text-sm text-purple-700 space-y-1 mb-4">
                 <li>• Coctel de bienvenida</li>
@@ -148,6 +151,18 @@ export function BasicEventDetails() {
           
           
         </div>
+      </div>
+
+      <div
+      className='flex justify-center my-8'
+      >
+        <Button
+        onClick={() => window.open("https://maps.app.goo.gl/4b1v8LS5RDgdeExk6", "_blank")}
+        className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-purple-300 focus:ring-offset-2"
+        >
+          Ver en Google Maps
+        </Button>
+
       </div>
       
       {/* Modal de video */}
