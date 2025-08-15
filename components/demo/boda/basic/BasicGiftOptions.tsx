@@ -18,10 +18,17 @@ export function BasicGiftOptions() {
   }
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section 
+    style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('/images/custom/vicky_miguel_10.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 bg-gray-200 bg-opacity-40 rounded-lg p-6">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center">
               <Gift className="w-8 h-8 text-white" />
@@ -30,7 +37,7 @@ export function BasicGiftOptions() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {basicDemoData.gifts.title}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-white max-w-2xl mx-auto">
             {basicDemoData.gifts.message}
           </p>
         </div>

@@ -6,10 +6,18 @@ import { weddingConfig } from '../data/wedding-config'
 
 export function PremiumInvitation() {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-purple-50 to-pink-50">
+    <section 
+    style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('/images/custom/vicky_miguel_8.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    className="py-16 px-4 "
+    >
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 bg-slate-100 bg-opacity-50 pb-4 rounded-lg">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
               <Heart className="w-8 h-8 text-white fill-current" />
@@ -18,7 +26,7 @@ export function PremiumInvitation() {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {premiumDemoData.invitation.title}
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-white">
             {premiumDemoData.invitation.message}
           </p>
         </div>

@@ -10,10 +10,17 @@ export function BasicEventDetails() {
   const [videoModalOpen, setVideoModalOpen] = useState(false)
 
   return (
-    <section className="py-16 px-4 bg-white">
+    <section 
+    style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('/images/custom/vicky_miguel_6.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    className="py-16 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 bg-gray-200 bg-opacity-40 rounded-lg p-6">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Cuándo y Dónde
           </h2>

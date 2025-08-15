@@ -215,10 +215,17 @@ Mensaje: ${message}`)
   }
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section 
+    style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('/images/custom/vicky_miguel_5.jpg')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}
+    className="py-16 px-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 bg-gray-200 bg-opacity-40 rounded-lg p-6">
           <div className="flex justify-center mb-4">
             <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
               <Users className="w-8 h-8 text-white" />
@@ -227,10 +234,10 @@ Mensaje: ${message}`)
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             {basicDemoData.attendance.title}
           </h2>
-          <p className="text-lg text-gray-600 mb-2">
+          <p className="text-lg text-white mb-2">
             {basicDemoData.attendance.message}
           </p>
-          <p className="text-gray-600">
+          <p className="text-white">
             {basicDemoData.attendance.subtitle}
           </p>
         </div>
