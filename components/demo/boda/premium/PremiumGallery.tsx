@@ -109,6 +109,10 @@ export function PremiumGallery() {
           </p>
         </div>
 
+        <p
+        className='text-lg text-black mb-2 text-center'
+        >Click en la imagen para ampliarla</p>
+
         {/* Carousel de Imágenes */}
         <div 
           className="relative"
