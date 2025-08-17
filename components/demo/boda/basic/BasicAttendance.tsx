@@ -245,7 +245,7 @@ Mensaje: ${message}`)
         {/* Demo Info */}
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8 text-center">
           <div className=''>
-            <p className='text-black text-xl font-bold'>Favor de confirmar antes del 15 de Noviembre de 2025 gracias</p>
+            <p className='text-black text-xl font-bold'>Confirmar a más tardar el 15 de noviembre de 2025</p>
           </div>
           <div className="flex items-center justify-center gap-2 text-green-700">
             <MessageCircle className="w-5 h-5" />

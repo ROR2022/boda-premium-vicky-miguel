@@ -86,11 +86,12 @@ Tienes una invitación especial a nuestra boda:
 👥 Número de invitados: ${formData.numberOfGuests} ${parseInt(formData.numberOfGuests) === 1 ? 'persona' : 'personas'}
 
 ✨ Ver tu invitación completa aquí:
-++++++++++++++++++++++++++++++++++++++
-+++++                           ++++++  
-+++++   👉 ${invitationURL}    +++++++
-+++++                           +++++++
-+++++++++++++++++++++++++++++++++++++++
+♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+♥♥♥♥♥                     
+♥♥♥♥♥   👉 ${invitationURL}    
+♥♥♥♥♥                      
+♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+
 
 💖 ¡Te esperamos para celebrar este día tan especial con nosotros!
 
