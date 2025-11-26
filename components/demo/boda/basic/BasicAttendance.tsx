@@ -244,7 +244,9 @@ Mensaje: ${message}`)
 
         {/* Demo Info */}
         <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-8 text-center">
-          <div className=''>
+          <div 
+          style={{display:'none'}}
+          className=''>
             <p className='text-black text-xl font-bold'>
               Confirmar a más tardar el 27 de noviembre de 2025</p>
           </div>
